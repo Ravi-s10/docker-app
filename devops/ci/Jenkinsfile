@@ -1,1 +1,44 @@
+def application
 
+pipeline {
+
+  agent any 
+
+  stages{
+
+stage("Read Properties file") {
+steps{
+script {
+props = readProperties file "devops/ci/pipeline.properties"
+  application = evaluate(props['application]).toString(0
+  
+
+}
+}
+}
+    stage("Source Code Fetch") {
+steps {
+script {
+checkout([$class: 'gitSCM' ,branches: [["${GIT_BRANCH}"]] ,gitTool: 'Default' ,userRemoteConfigs: [[url = "${gitRepo}"]]])
+
+}
+  
+
+}
+
+    }
+
+                               stage("Build Docker image"){
+                          steps{
+                      script{
+                        docker ps
+                      }
+                          }
+                               }
+    
+
+
+
+  }
+  
+}
