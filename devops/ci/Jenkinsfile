@@ -19,7 +19,7 @@ parameters {
   )
 
  string(
-     name: 'IMAGE',
+     name: 'IMAGE_VALUE',
     defaultValue: ''
   )
 
