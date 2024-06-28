@@ -14,11 +14,13 @@ pipeline {
     string(
       name: 'IMAGE',
       defaultValue: 'ravis10/nginx:5'
+      description: 'Enter image name'
       
     )
     string(
       name: 'NAME',
       defaultValue: 'nginx-demo'
+      description: 'Enter conatiner name'
       
     )
   }
