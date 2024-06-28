@@ -52,7 +52,7 @@ steps{
     stage("Buidl and Push") {
 steps{
 script{
-withDockerRegistory(credentialsId: 'DOCKERHUB')
+withDockerRegistry(credentialsId: 'DOCKERHUB')
   sh "docker build -t ravis10/nginx:${BUILD_NUMBER}"
   sh "docker push ravis10/nginx:${BUILD_NUMBER}"
   
