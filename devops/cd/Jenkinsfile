@@ -17,7 +17,7 @@ pipeline {
       
     )
     string(
-      name: 'name',
+      name: 'NAME',
       defaultValue: 'nginx-demo'
       
     )
