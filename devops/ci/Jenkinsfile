@@ -11,7 +11,7 @@ stage("Read Properties file") {
 steps{
 script {
 props = readProperties file "devops/ci/pipeline.properties"
-  application = evaluate(props['application]).toString()
+  application = evaluate(props['application']).toString()
   gitRepo = evaluate(props['gitRepo']).toString()
 
 }
