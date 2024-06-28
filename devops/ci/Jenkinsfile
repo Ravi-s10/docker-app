@@ -20,7 +20,8 @@ props = readProperties file: "devops/ci/pipeline.properties"
     stage("Source Code Fetch") {
 steps {
 script {
-checkout([$class: 'gitSCM' ,branches: [["${GIT_BRANCH}"]] ,gitTool: 'Default' ,userRemoteConfigs: [[url = "${gitRepo}"]]])
+  checkout scmGit(branches: [[name: '**']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Ravi-s10/docker-app']])
+//checkout([$class: 'gitSCM' ,branches: [["${GIT_BRANCH}"]] ,gitTool: 'Default' ,userRemoteConfigs: [[url = "${gitRepo}"]]])
 
 }
   
