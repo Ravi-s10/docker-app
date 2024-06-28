@@ -39,13 +39,25 @@ script {
                      
  }
 }
-
+/*
     stage("Login to Dockerhub") {
 steps{
   sh "echo $DOCKERHUBCRED | docker login -u ravis10 --password-stdin"
   echo "Login Success"
 }
 
+    }
+    */
+
+    stage("Buidl and Push") {
+steps{
+script{
+withDockerRegistory(credentialsId: 'DOCKERHUB')
+  sh "docker build -t ravis10/nginx:${BUILD_NUMBER}"
+  sh "docker push ravis10/nginx:${BUILD_NUMBER}"
+  
+}
+}
     }
 
 
