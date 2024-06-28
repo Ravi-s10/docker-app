@@ -4,6 +4,21 @@ def gitRepo
 pipeline {
 
   agent any 
+parameters {
+  string(
+    name: 'HOST_PORT',
+    defaultValue: ''
+  )
+  string(
+     name: 'CONTAINER_PORT',
+    defaultValue: ''
+  )
+  string(
+     name: 'NAME',
+    defaultValue: ''
+  )
+}
+  
 environment {
 DOCKERHUBCRED = credentials('DOCKERHUB')
 }
@@ -58,6 +73,12 @@ withDockerRegistry(credentialsId: 'dockehub'){
 }
 }
 }
+    }
+
+    stage("Trigger CD Job"){
+      steps{
+        build job: 'docker-cd', parameters: [string(name: 'HOST_PORT', value: '83'), string(name: 'CONTAINER_PORT', value: '80'), string(name: 'IMAGE', value: 'ravis10/nginx:5'), string(name: 'NAME', value: 'nginx-demo')]
+      }
     }
 
 
