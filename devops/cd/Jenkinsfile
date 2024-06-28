@@ -26,3 +26,7 @@ stages{
   stage("Run Conatiner") {
     steps{
       sh "doker run -dt -p --name ${NAME} ${HOST_PORT}:${CONTAINER_PORT} ${IMAGE}"
+    }
+  }
+}
+}
