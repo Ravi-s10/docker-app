@@ -11,12 +11,18 @@ pipeline {
       defaultValue: 80,
       description: 'Enter container port no'
     )
+    string(
+      name: 'IMAGE',
+      defaultValue: 'ravis10/nginx:5'
+      
+    )
+    string(
+      name: 'name',
+      defaultValue: 'nginx-demo'
+      
+    )
   }
 stages{
   stage("Run Conatiner") {
     steps{
-      sh "doker run -dt -p ${HOST_PORT}:${CONTAINER_PORT}
-    }
-  }
-}
-}
+      sh "doker run -dt -p --name ${NAME} ${HOST_PORT}:${CONTAINER_PORT} ${IMAGE}"
