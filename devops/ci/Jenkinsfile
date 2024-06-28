@@ -12,7 +12,7 @@ steps{
 script {
 props = readProperties file "devops/ci/pipeline.properties"
   application = evaluate(props['application]).toString()
-  gitRepo = evaluate(props['gitRepo]).toString()
+  gitRepo = evaluate(props['gitRepo']).toString()
 
 }
 }
