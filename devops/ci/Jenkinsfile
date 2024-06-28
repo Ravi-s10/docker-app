@@ -53,7 +53,7 @@ steps{
 steps{
 script{
 withDockerRegistry(credentialsId: 'dockehub'){
-  sh "docker build -t ravis10/nginx:${BUILD_NUMBER}"
+  sh "docker build -t ravis10/nginx:${BUILD_NUMBER} ."
   sh "docker push ravis10/nginx:${BUILD_NUMBER}"
 }
 }
