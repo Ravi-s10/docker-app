@@ -1,0 +1,22 @@
+pipeline {
+  agent any 
+  parameters{
+    choice(
+      name: 'HOST_PORT',
+      choices: 80,
+      description: 'Enter host port to run conatiner'
+    )
+    choice(
+      name: 'CONTAINER_PORT',
+      choice: 80,
+      description: 'Enter container port no'
+    )
+  }
+stages{
+  stage("Run Conatiner") {
+    steps{
+      sh "doker run -dt -p ${HOST_PORT}:${CONTAINER_PORT}
+    }
+  }
+}
+}
