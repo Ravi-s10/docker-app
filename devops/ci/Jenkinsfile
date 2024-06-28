@@ -32,9 +32,9 @@ script {
 
                                stage("Build Docker image"){
                           steps{
-                      script{
-                        docker ps
-                      }
+                     
+                      sh 'docker ps'
+                     
                           }
                                }
     
