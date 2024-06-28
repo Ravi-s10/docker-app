@@ -42,7 +42,7 @@ script {
 
     stage("Login to Dockerhub") {
 steps{
-  sh "echo $DOCKERHUBCRED | docker login -u ravi-s10 --password-stdin"
+  sh "echo $DOCKERHUBCRED | docker login -u ravis10 --password-stdin"
   echo "Login Success"
 }
 
