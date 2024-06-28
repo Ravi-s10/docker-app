@@ -14,7 +14,7 @@ parameters {
     defaultValue: ''
   )
   string(
-     name: 'NAME_VALUE'',
+     name: 'NAME_VALUE',
     defaultValue: ''
   )
 
