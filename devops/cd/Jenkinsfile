@@ -25,7 +25,7 @@ pipeline {
 stages{
   stage("Run Conatiner") {
     steps{
-      sh "docker run -dt -p --name ${NAME} ${HOST_PORT}:${CONTAINER_PORT} ${IMAGE}"
+      sh "docker run -dt --name ${NAME} -p ${HOST_PORT}:${CONTAINER_PORT} ${IMAGE}"
     }
   }
 }
