@@ -4,7 +4,9 @@ def gitRepo
 pipeline {
 
   agent any 
-
+environment {
+DOCKERHUBCRED = credentials('DOCKERHUB')
+}
   stages{
 
 stage("Read Properties file") {
@@ -30,14 +32,21 @@ script {
 
     }
 
-                               stage("Build Docker image"){
-                          steps{
+   stage("Build Docker image"){
+  steps{
                      
-                      sh "docker build -t ${application}_${BUILD_NUMBER} ."
+ sh "docker build -t ${application}_${BUILD_NUMBER} ."
                      
-                          }
-                               }
-    
+ }
+}
+
+    stage("Login to Dockerhub") {
+steps{
+  sh "echo $DOCKERHUBCRED | docker login -u ravi-s10 --password-stdin"
+  echo "Login Success"
+}
+
+    }
 
 
 
