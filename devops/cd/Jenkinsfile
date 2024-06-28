@@ -3,12 +3,12 @@ pipeline {
   parameters{
     string(
       name: 'HOST_PORT',
-      defaultValue: 83,
+      defaultValue: '83',
       description: 'Enter host port to run conatiner'
     )
     string(
       name: 'CONTAINER_PORT',
-      defaultValue: 80,
+      defaultValue: '80',
       description: 'Enter container port no'
     )
     string(
