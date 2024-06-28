@@ -1,14 +1,14 @@
 pipeline {
   agent any 
   parameters{
-    choice(
+    string(
       name: 'HOST_PORT',
-      choices: 80,
+      defaultValue: 83,
       description: 'Enter host port to run conatiner'
     )
-    choice(
+    string(
       name: 'CONTAINER_PORT',
-      choice: 80,
+      defaultValue: 80,
       description: 'Enter container port no'
     )
   }
