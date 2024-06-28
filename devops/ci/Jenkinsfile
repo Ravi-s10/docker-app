@@ -10,7 +10,7 @@ parameters {
     defaultValue: ''
   )
   string(
-     name: 'CONTAINER_PORT_VALUE'',
+     name: 'CONTAINER_PORT_VALUE',
     defaultValue: ''
   )
   string(
